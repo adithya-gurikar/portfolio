@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix sequence",
+    "build": "npm run build --prefix sequence",
+    "start": "npm run start --prefix sequence",
+    "lint": "npm run lint --prefix sequence"
+  }
+}
