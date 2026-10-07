@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description: "Scrollytelling portfolio showcasing digital experiences.",
 };
 
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/sequence/ezgif-frame-001.webp"
+          type="image/webp"
+        />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <CustomCursor />
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

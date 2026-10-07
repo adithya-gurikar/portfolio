@@ -10,9 +10,22 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = (target: string | number) => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(target, { duration: 1.4 });
+    } else {
+      if (typeof target === "number") {
+        window.scrollTo({ top: target, behavior: "smooth" });
+      } else {
+        const el = document.querySelector(target);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <motion.header
@@ -24,23 +37,39 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
-        <div className="text-white font-bold text-xl tracking-tight">
-          Adithya<span className="text-gray-400">.</span>
-        </div>
+        <button
+          onClick={() => scrollToSection(0)}
+          className="text-white font-bold text-base sm:text-lg md:text-xl tracking-tight text-left cursor-pointer hover:opacity-80 transition-opacity"
+        >
+          Adithya Shashikumaar Gurikar<span className="text-amber-400">.</span>
+        </button>
         
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#about" className="text-sm text-gray-300 hover:text-white transition-colors">
+          <button
+            onClick={() => scrollToSection("#about")}
+            className="text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
             About Me
-          </a>
-          <a href="#projects" className="text-sm text-gray-300 hover:text-white transition-colors">
+          </button>
+          <button
+            onClick={() => scrollToSection("#projects")}
+            className="text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
             Projects
-          </a>
-          <a href="/resume.pdf" target="_blank" className="text-sm text-gray-300 hover:text-white transition-colors">
+          </button>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            className="text-sm text-gray-300 hover:text-white transition-colors"
+          >
             Resume
           </a>
-          <a href="#contact" className="text-sm text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-all backdrop-blur-sm border border-white/10">
+          <button
+            onClick={() => scrollToSection("#contact")}
+            className="text-sm text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-all backdrop-blur-sm border border-white/10 cursor-pointer"
+          >
             Contact
-          </a>
+          </button>
         </nav>
       </div>
     </motion.header>

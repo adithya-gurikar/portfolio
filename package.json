@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "postinstall": "npm install --prefix sequence",
     "dev": "npm run dev --prefix sequence",
     "build": "npm run build --prefix sequence",
     "start": "npm run start --prefix sequence",
