@@ -10,6 +10,7 @@ function pad(num: number, size: number) {
   return s;
 }
 
+
 export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);

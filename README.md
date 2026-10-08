@@ -15,11 +15,3 @@ A portfolio website built with Next.js, React, Tailwind CSS, and Framer Motion. 
 - **Responsive Layout**: Dark theme design across mobile, tablet, and desktop.
 
 ---
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 16 (App Router, Turbopack)
-- **Frontend**: React 19, TypeScript
-- **Styling**: Tailwind CSS v4
-- **Animation**: Framer Motion, Lenis Smooth Scroll
-- **Icons**: Lucide React
