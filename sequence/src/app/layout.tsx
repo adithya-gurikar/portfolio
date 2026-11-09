@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Archivo_Black, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+const grotesk = Space_Grotesk({ variable: "--font-grotesk", subsets: ["latin"] });
+const archivo = Archivo_Black({ variable: "--font-archivo", subsets: ["latin"], weight: "400" });
+const syne = Syne({ variable: "--font-syne", subsets: ["latin"], weight: ["500", "700", "800"] });
+const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Creative Developer Portfolio",
-  description: "Scrollytelling portfolio showcasing digital experiences.",
+  title: "Adithya Gurikar — Portfolio",
+  description: "Portfolio of Adithya Gurikar — creative developer.",
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
@@ -21,15 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/sequence/ezgif-frame-001.webp"
-          type="image/webp"
-        />
-      </head>
+    <html lang="en" className={`${grotesk.variable} ${archivo.variable} ${jetbrains.variable} ${syne.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <CustomCursor />
         <SmoothScroll>{children}</SmoothScroll>

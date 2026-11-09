@@ -28,15 +28,12 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       window.scrollTo(0, 0);
     }
 
+    // lerp-based smoothing: continuous easing toward the target, no fixed-duration "steps"
     const lenis = new Lenis({
-      duration: 1.25,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
+      lerp: 0.085,
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.5,
-      infinite: false,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.4,
       prevent: (node) => node.classList?.contains("no-lenis"),
     });
 

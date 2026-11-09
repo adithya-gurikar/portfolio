@@ -1,75 +1,78 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+const links = [
+  { label: "About", id: "about", mobile: false },
+  { label: "Skills", id: "skills", mobile: false },
+  { label: "Experience", id: "experience", mobile: false },
+  { label: "Work", id: "projects", mobile: true },
+  { label: "Contact", id: "contact", mobile: true },
+];
 
+export default function Navbar() {
+  const [active, setActive] = useState("");
+
+  // Highlight the section currently crossing the middle of the viewport
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const ids = ["about", "skills", "education", "experience", "publications", "awards", "projects", "contact"];
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
   }, []);
 
-  const scrollToSection = (target: string | number) => {
+  const scrollTo = (target: string | number) => {
     if (window.__lenis) {
-      window.__lenis.scrollTo(target, { duration: 1.4 });
+      window.__lenis.scrollTo(target, { duration: 1.6, easing: (t) => 1 - Math.pow(1 - t, 4) });
+    } else if (typeof target === "string") {
+      document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      if (typeof target === "number") {
-        window.scrollTo({ top: target, behavior: "smooth" });
-      } else {
-        const el = document.querySelector(target);
-        el?.scrollIntoView({ behavior: "smooth" });
-      }
+      window.scrollTo({ top: target, behavior: "smooth" });
     }
   };
 
+  // mix-blend-difference keeps the nav legible over dark, cream and orange sections
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#121212]/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
-      }`}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white"
+      style={{ fontFamily: "var(--font-nav)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
-        <button
-          onClick={() => scrollToSection(0)}
-          className="text-white font-bold text-base sm:text-lg md:text-xl tracking-tight text-left cursor-pointer hover:opacity-80 transition-opacity"
-        >
-          Adithya Shashikumaar Gurikar<span className="text-amber-400">.</span>
+      <div className="flex items-center justify-between px-6 md:px-12 py-5 text-[13px] font-bold uppercase tracking-[0.12em]">
+        <button onClick={() => scrollTo(0)} className="text-lg font-extrabold tracking-tight" data-cursor="Top">
+          A.G<span className="text-[#ff4d00]">●</span>
         </button>
-        
-        <nav className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection("#about")}
-            className="text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
-          >
-            About Me
-          </button>
-          <button
-            onClick={() => scrollToSection("#projects")}
-            className="text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
-          >
-            Projects
-          </button>
+        <nav className="flex items-center gap-5 md:gap-9">
+          {links.map((l) => (
+            <button
+              key={l.id}
+              onClick={() => scrollTo(`#${l.id}`)}
+              className={`group relative ${l.mobile ? "" : "hidden md:block"}`}
+            >
+              {l.label}
+              <span
+                className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left bg-current transition-transform duration-500 ease-out ${
+                  active === l.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            </button>
+          ))}
           <a
             href="/resume.pdf"
             target="_blank"
-            className="text-sm text-gray-300 hover:text-white transition-colors"
+            className="border-2 border-current px-3 py-1.5 transition-colors duration-300 hover:bg-white hover:text-black"
           >
-            Resume
+            Resume ↗
           </a>
-          <button
-            onClick={() => scrollToSection("#contact")}
-            className="text-sm text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-all backdrop-blur-sm border border-white/10 cursor-pointer"
-          >
-            Contact
-          </button>
         </nav>
       </div>
     </motion.header>
