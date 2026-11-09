@@ -16,7 +16,7 @@ export default function Navbar() {
 
   // Highlight the section currently crossing the middle of the viewport
   useEffect(() => {
-    const ids = ["about", "skills", "education", "experience", "publications", "awards", "projects", "contact"];
+    const ids = ["about", "skills", "education", "experience", "publications", "projects", "contact"];
     const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-45% 0px -50% 0px" }

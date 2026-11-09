@@ -33,6 +33,7 @@ const links = [
   { label: "US", value: "+1 (217) 621-0538", href: "tel:+12176210538" },
   { label: "IN", value: "+91 63661 20580", href: "tel:+916366120580" },
   { label: "LinkedIn", value: "adithya-shashikumaar-gurikar ↗", href: "https://www.linkedin.com/in/adithya-shashikumaar-gurikar", external: true },
+  { label: "GitHub", value: "adithya-gurikar ↗", href: "https://github.com/adithya-gurikar", external: true },
 ];
 
 export default function Contact() {
@@ -40,7 +41,7 @@ export default function Contact() {
     <section id="contact" className="relative z-20 bg-ink text-paper px-6 md:px-12 pt-24 pb-10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex items-center justify-between font-display text-[10px] md:text-[11px] uppercase tracking-[0.14em] border-b border-paper/30 pb-3 mb-12">
-          <span>[ 09 ] Contact</span>
+          <span>[ 07 ] Contact</span>
           <span className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" /> Available for new opportunities
           </span>
@@ -62,7 +63,7 @@ export default function Contact() {
           </Magnetic>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-paper/30">
+        <div className="grid grid-cols-1 md:grid-cols-4 border-t border-paper/30">
           {links.map((l) => (
             <a
               key={l.label}

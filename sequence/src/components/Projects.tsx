@@ -3,12 +3,37 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
-// Replace these placeholders with real projects (add `image` for a screenshot preview).
 const projects = [
-  { title: "Project Alpha", description: "High-performance e-commerce platform built with Next.js and Shopify.", tags: ["Next.js", "Tailwind", "Shopify"], year: "2025", color: "#ff4d00", link: "#" },
-  { title: "Project Beta", description: "Interactive WebGL experience using Three.js and React Three Fiber.", tags: ["React", "Three.js", "WebGL"], year: "2025", color: "#111111", link: "#" },
-  { title: "Project Gamma", description: "Real-time analytics dashboard with complex data visualizations.", tags: ["TypeScript", "Recharts", "Supabase"], year: "2024", color: "#2b59ff", link: "#" },
-  { title: "Project Delta", description: "Sleek, animated marketing site for a FinTech startup.", tags: ["Framer Motion", "Next.js", "Tailwind"], year: "2024", color: "#00a86b", link: "#" },
+  {
+    title: "Backup Service",
+    full: "Automated Backup Service with Docker and Kubernetes",
+    description:
+      "Containerized Python service on the Google Drive API with OAuth 2.0 and resumable uploads, scheduled on Kubernetes via a CronJob with retries and persistent volumes.",
+    tags: ["Python", "Docker", "Kubernetes", "OAuth 2.0"],
+    kind: "DevOps",
+    color: "#2b59ff",
+    link: "https://github.com/adithya-gurikar/Back-Up-service-using-docker-and-Kubernetes",
+  },
+  {
+    title: "YADFS",
+    full: "Yet Another Distributed File System",
+    description:
+      "HDFS-inspired file system in Python: NameNode and 5 DataNodes, 64 KB blocks with 3x replication, heartbeat checks and checkpoint recovery.",
+    tags: ["Python", "Distributed Systems", "Fault Tolerance"],
+    kind: "Systems",
+    color: "#111111",
+    link: "https://github.com/adithya-gurikar/EC-Yet-Another-Distributed-File-System-YADFS--main",
+  },
+  {
+    title: "Spirulina Growth",
+    full: "Spirulina Algae Growth Prediction and Yield Optimization",
+    description:
+      "Regression pipeline on NASA Ames data benchmarking 6 models. CatBoost won with R² 0.988, plus a hybrid recommender to help farmers tune cultivation.",
+    tags: ["CatBoost", "xGBoost", "Scikit-learn", "Hyperopt"],
+    kind: "Machine Learning",
+    color: "#00a86b",
+    link: "https://github.com/TejasB02/Framework-for-Data-Driven-Spirulina-Cultivation-Recommendations",
+  },
 ];
 
 export default function Projects() {
@@ -34,7 +59,7 @@ export default function Projects() {
           <h2 className="font-display uppercase text-[14vw] md:text-[9vw] leading-[0.85] tracking-tighter">
             Selected<br />Work<span className="text-accent">.</span>
           </h2>
-          <span className="font-display text-[10px] md:text-[11px] uppercase tracking-[0.14em] mb-2">[ 08 ] {String(projects.length).padStart(2, "0")} projects</span>
+          <span className="font-display text-[10px] md:text-[11px] uppercase tracking-[0.14em] mb-2">[ 06 ] {String(projects.length).padStart(2, "0")} projects</span>
         </div>
 
         <ul onMouseLeave={() => setActive(null)}>
@@ -42,6 +67,8 @@ export default function Projects() {
             <li key={p.title}>
               <a
                 href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 onMouseEnter={() => setActive(i)}
                 data-cursor="View"
                 className={`group relative flex items-center gap-4 md:gap-8 border-b-[3px] border-ink py-6 md:py-8 px-2 transition-colors duration-300 ${
@@ -57,7 +84,7 @@ export default function Projects() {
                     <span key={t} className="border border-current px-2 py-1">{t}</span>
                   ))}
                 </span>
-                <span className="font-mono text-xs">{p.year}</span>
+                <span className="hidden sm:inline font-mono text-xs uppercase tracking-widest">{p.kind}</span>
                 <span className="text-2xl transition-transform duration-300 group-hover:rotate-45">↗</span>
               </a>
             </li>
@@ -82,7 +109,7 @@ export default function Projects() {
               animate={{ backgroundColor: projects[active].color }}
               transition={{ duration: 0.3 }}
             />
-            <span className="font-mono text-xs uppercase tracking-widest">{projects[active].year}</span>
+            <span className="font-mono text-xs uppercase tracking-widest">{projects[active].kind}</span>
             <p className="font-bold text-lg leading-snug">{projects[active].description}</p>
           </motion.div>
         )}

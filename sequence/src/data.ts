@@ -1,87 +1,86 @@
 // ─────────────────────────────────────────────────────────────
-// EDIT ME: all content for the Skills / Education / Experience /
-// Awards sections lives here. Entries marked PLACEHOLDER are
-// examples, replace them with your real details.
+// All content for Skills / Education / Experience / Publications
+// lives here (from the resume and the IEEE paper page).
 // ─────────────────────────────────────────────────────────────
 
 export const skills = [
-  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML & CSS"] },
-  { group: "Motion & Interaction", items: ["Framer Motion", "Canvas", "Lenis", "WebGL", "GSAP"] },
-  { group: "Backend & Tools", items: ["Node.js", "Supabase", "Git & GitHub", "Figma", "REST APIs"] },
+  { group: "Languages", items: ["Python", "C", "C++", "Java", "JavaScript", "SQL (MySQL)", "HTML/CSS"] },
+  { group: "Backend & APIs", items: ["FastAPI", "MongoDB", "Redis", "Git"] },
+  { group: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes"] },
+  {
+    group: "AI & ML",
+    items: ["LLMs", "OpenAI API", "Gemini API", "Prompt Engineering", "Multi-Agent Systems", "SpaCy", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "ai4bharat-transliteration"],
+  },
+  { group: "Data", items: ["ETL/ELT Pipelines", "Selenium", "Beautiful Soup", "Metabase", "Tableau"] },
 ];
 
-export const ticker = ["Next.js", "React", "TypeScript", "Tailwind", "Framer Motion", "Canvas", "WebGL", "Node.js"];
+export const ticker = ["Python", "FastAPI", "AWS", "Docker", "Kubernetes", "MongoDB", "LLMs", "PyTorch", "ETL"];
 
-// PLACEHOLDER
 export const education = [
   {
-    school: "Your University",
-    degree: "B.E. / B.S. in Computer Science",
-    years: "2021 — 2025",
-    detail: "Relevant coursework, GPA, thesis or clubs go here.",
+    school: "University of Illinois Urbana-Champaign",
+    degree: "Master of Computer Science",
+    years: "Expected May 2028",
+    detail: "Relevant coursework: Database Systems, Advanced Data Management, Applied Machine Learning.",
   },
   {
-    school: "Your College / School",
-    degree: "Higher Secondary (12th)",
-    years: "2019 — 2021",
-    detail: "Stream, board, percentage or notable achievements.",
+    school: "PES University",
+    degree: "B.Tech in Computer Science and Engineering",
+    years: "2021 — 2025",
+    detail: "Bengaluru, India.",
   },
 ];
 
-// PLACEHOLDER
 export const experience = [
   {
-    role: "Software Engineer Intern",
-    company: "Company Name",
-    years: "Jun 2025 — Present",
+    role: "Trainee Data Engineer",
+    company: "Eligarf Technologies Private Limited",
+    location: "Pune, India",
+    years: "Sep 2025 — Aug 2026",
     points: [
-      "One line on what you built and the impact it had.",
-      "Technologies used and the scale or users involved.",
+      "Designed and shipped an LLM-powered astrology chatbot as a FastAPI service for iMeUsWe, a family heritage and astrology platform, delivering real-time personalized responses to thousands of users.",
+      "Built GenAI-based sentiment analysis and prompt optimization modules to improve astrologer-client interactions, increasing user engagement by 30%.",
+      "Designed and maintained ETL/ELT pipelines across MongoDB, Redis, and AWS for real-time ingestion, validation, and analytics, processing around 20,000 records per day.",
+      "Partnered with product and testing teams to improve reliability, accuracy, and scalability.",
     ],
   },
   {
-    role: "Frontend Developer",
-    company: "Another Company",
-    years: "2024 — 2025",
+    role: "Professional Services Consultant Intern",
+    company: "Aptos India Private Limited",
+    location: "Bengaluru, India",
+    years: "Jul 2025 — Sep 2025",
     points: [
-      "Shipped a feature or product, mention a measurable result.",
-      "Collaborated with design to build polished, performant UI.",
+      "Configured, tested, and integrated data for CRM and Sales Audit systems for 5 major retail clients, executing test cases and documenting results in detailed reports.",
+      "Resolved integration and usability issues during post-implementation support, ensuring stable client transitions.",
+    ],
+  },
+  {
+    role: "Trainee Engineer",
+    company: "Eligarf Technologies Private Limited",
+    location: "Pune, India",
+    years: "Jan 2025 — Jul 2025",
+    points: [
+      "Contributed to a multi-agent GenAI content-generation system using OpenAI and Gemini APIs to synthesize trend-based posts from Google Trends and iMeUsWe communities, generating over 250 posts per week.",
+      "Applied SpaCy NER models (sm, lg, trf) to extract names and key entities from printed and handwritten PDFs and load curated data into MongoDB, processing 100 documents a day.",
+      "Built web scrapers with Selenium and Beautiful Soup to automate dynamic data extraction, processing 10,000+ records per day.",
     ],
   },
 ];
 
-// PLACEHOLDER
-export const awards = [
-  { year: "2025", title: "Hackathon Winner", org: "Event / Organisation" },
-  { year: "2024", title: "Dean's List", org: "Your University" },
-  { year: "2024", title: "Open Source Contributor", org: "Project / Community" },
-  { year: "2023", title: "Certification", org: "Issuer" },
-];
+export const links = {
+  github: "https://github.com/adithya-gurikar",
+  linkedin: "https://www.linkedin.com/in/adithya-shashikumaar-gurikar",
+  email: "adithyagurikar10@gmail.com",
+};
 
-// PLACEHOLDER
 export const publications = [
   {
-    year: "2025",
-    title: "Title of Your Paper or Article Goes Here",
-    authors: "A. Gurikar, Co-Author, Co-Author",
-    venue: "Journal / Conference Name",
-    type: "Paper",
-    link: "#",
-  },
-  {
     year: "2024",
-    title: "Another Publication, Blog Post or Technical Write-up",
-    authors: "A. Gurikar",
-    venue: "Publisher / Platform",
-    type: "Article",
-    link: "#",
-  },
-  {
-    year: "2024",
-    title: "A Poster, Patent or Workshop Paper Title",
-    authors: "A. Gurikar, Co-Author",
-    venue: "Event / Institution",
-    type: "Poster",
-    link: "#",
+    title: "An xG Based Football Scouting System Using Machine Learning Techniques",
+    authors: ["Abhinav BV", "Adhi Nandan J", "Adithya S Gurikar", "Aditya Joshi", "Akshit Pandharkar", "Prajwala T R"],
+    venue: "2024 IEEE 9th International Conference for Convergence in Technology (I2CT) · Pune, India · Apr 5–7, 2024",
+    type: "Conference Paper",
+    link: "https://ieeexplore.ieee.org/document/10544261",
+    pdf: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10544261",
   },
 ];

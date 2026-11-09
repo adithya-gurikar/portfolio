@@ -7,7 +7,7 @@ export default function Education() {
   return (
     <section id="education" className="relative z-20 bg-paper text-ink px-6 md:px-12 pt-20 md:pt-24 pb-20 md:pb-24">
       <div className="max-w-[1400px] mx-auto">
-        <SectionHead num="04" label="Education" lines={["Where I", "learned"]} />
+        <SectionHead num="03" label="Education" lines={["Where I", "learned"]} />
 
         <ul className="border-t-[3px] border-ink">
           {education.map((e, i) => (

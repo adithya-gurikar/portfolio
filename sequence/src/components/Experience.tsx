@@ -13,7 +13,7 @@ export default function Experience() {
   return (
     <section id="experience" className="relative z-20 bg-ink text-paper px-6 md:px-12 pt-20 md:pt-24 pb-20 md:pb-24">
       <div className="max-w-[1400px] mx-auto">
-        <SectionHead num="05" label="Experience" lines={["Work I've", "done"]} border="border-paper" />
+        <SectionHead num="04" label="Experience" lines={["Work I've", "done"]} border="border-paper" />
 
         <div ref={ref} className="relative pl-8 md:pl-16">
           {/* timeline track + scroll-filled line */}
@@ -35,7 +35,9 @@ export default function Experience() {
                     <span className="font-mono text-xs uppercase tracking-widest text-accent pt-2">{x.years}</span>
                     <div>
                       <h3 className="font-display uppercase text-3xl md:text-5xl tracking-tighter leading-none">{x.role}</h3>
-                      <p className="text-xl font-medium mt-2 mb-5 text-paper/70">@ {x.company}</p>
+                      <p className="text-xl font-medium mt-2 mb-5 text-paper/70">
+                        @ {x.company} <span className="font-mono text-xs uppercase tracking-widest text-paper/40 ml-2">{x.location}</span>
+                      </p>
                       <ul className="space-y-2 max-w-2xl">
                         {x.points.map((p) => (
                           <li key={p} className="flex gap-3 text-paper/80">

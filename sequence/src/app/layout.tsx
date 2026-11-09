@@ -8,8 +8,8 @@ const syne = Syne({ variable: "--font-syne", subsets: ["latin"], weight: ["500",
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adithya Gurikar — Portfolio",
-  description: "Portfolio of Adithya Gurikar — creative developer.",
+  title: "Adithya Shashikumaar Gurikar — Portfolio",
+  description: "Adithya Shashikumaar Gurikar: data engineer and MS Computer Science student at UIUC, building GenAI products, ETL pipelines and distributed systems.",
 };
 
 import SmoothScroll from "@/components/SmoothScroll";

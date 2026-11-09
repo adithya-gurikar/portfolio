@@ -37,12 +37,14 @@ export function SectionHead({
   lines,
   note,
   border = "border-current",
+  dot = "text-accent",
 }: {
   num: string;
   label: string;
   lines: string[];
   note?: string;
   border?: string;
+  dot?: string;
 }) {
   const reduce = useReducedMotion();
   return (
@@ -71,7 +73,7 @@ export function SectionHead({
               className="block transform-gpu"
             >
               {l}
-              {i === lines.length - 1 && <span className="text-accent">.</span>}
+              {i === lines.length - 1 && <span className={dot}>.</span>}
             </motion.span>
           </motion.span>
         ))}
